@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -15,7 +17,19 @@ public class Main {
         boolean result = isUnique("always");
         System.out.println(result);
     }
-    public static boolean isUnique(String word){
-        return false;
-    }
+    public static boolean isUnique(String word) {
+        if (word.length() < 2) {
+            return true;
+        } else {
+            ArrayList<Character> seenChars = new ArrayList<>();
+            for (char c : word.toCharArray()) {
+                if (seenChars.contains(c)) {
+                    return false;
+                } else {
+                    seenChars.add(c);
+                }
+              }
+            }
+            return true;
+        }
 }
